@@ -1,0 +1,32 @@
+{
+  "name": "weather-app-js-odin",
+  "version": "1.0.0",
+  "description": "## Summary: This project is a weather app that uses async capabilities to grab data from a weather API.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode=production",
+    "watch": "webpack --progress --mode=development --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dmkirshon/weather-app-js-odin.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dmkirshon/weather-app-js-odin/issues"
+  },
+  "homepage": "https://github.com/dmkirshon/weather-app-js-odin#readme",
+  "devDependencies": {
+    "css-loader": "^6.6.0",
+    "eslint": "^8.10.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-prettier": "^4.0.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.69.1",
+    "webpack-cli": "^4.9.2"
+  }
+}
