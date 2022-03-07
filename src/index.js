@@ -1,3 +1,9 @@
-import weatherAPI from "./controller/weatherAPI";
+import displayController from "./controller/displayController";
 
-const london = weatherAPI();
+async function loadCityView() {
+  const reportViewDisplay = await displayController();
+
+  document.body.appendChild(reportViewDisplay);
+}
+
+loadCityView();
