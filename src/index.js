@@ -1,3 +1,3 @@
-import getWeatherData from "./controller/weather";
+import weatherAPI from "./controller/weatherAPI";
 
-getWeatherData();
+const london = weatherAPI();
