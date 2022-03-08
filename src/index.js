@@ -1,9 +1,11 @@
 import displayController from "./controller/displayController";
+// eslint-disable-next-line no-unused-vars
+import css from "./style.css";
 
 async function loadCityView() {
-  const reportViewDisplay = await displayController();
+  const displayViews = await displayController();
 
-  document.body.appendChild(reportViewDisplay);
+  document.body.appendChild(displayViews.makeWeatherReport());
 }
 
 loadCityView();

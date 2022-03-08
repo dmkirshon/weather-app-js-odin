@@ -3,18 +3,20 @@ import weatherReportView from "../layout/weatherReportView";
 const displayController = async () => {
   const weatherReport = await weatherReportView();
 
-  const weatherReportDiv = document.createElement("div");
+  const makeWeatherReport = () => {
+    const weatherReportDiv = document.createElement("div");
 
-  weatherReportDiv.append(
-    weatherReport.makeLocationView(),
-    weatherReport.makeWeatherView()
-  );
+    weatherReportDiv.classList = `weather-report ${weatherReport.getDayOrNightClass()}`;
 
-  weatherReportDiv.style.backgroundColor =
-    weatherReport.getDayOrNightClass()[1];
-  weatherReportDiv.style.color = weatherReport.getDayOrNightClass()[0];
+    weatherReportDiv.append(
+      weatherReport.makeLocationView(),
+      weatherReport.makeWeatherView()
+    );
 
-  return weatherReportDiv;
+    return weatherReportDiv;
+  };
+
+  return { makeWeatherReport };
 };
 
 export default displayController;

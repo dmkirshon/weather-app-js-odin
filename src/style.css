@@ -1,0 +1,91 @@
+/* General Style */
+
+html {
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Weather Report View */
+
+.weather-report {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0 auto;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 5px solid black;
+  background-color: aliceblue;
+}
+
+.weather-report-location-info {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.weather-report-time {
+  flex: 1;
+}
+.weather-report-city {
+  flex: 2;
+  text-align: center;
+  font-size: xx-large;
+}
+
+.weather-report-sunrise-sunset {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  white-space: pre-line;
+  text-align: center;
+}
+
+.weather-report-weather-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: large;
+  gap: 1rem;
+}
+
+.weather-report-weather-description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: xx-large;
+  background-color: rgba(128, 128, 128, 0.432);
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.weather-report-weather-temps {
+  font-size: x-large;
+  text-align: center;
+  white-space: pre-line;
+}
+
+/* Dark Mode Style */
+
+.night-dark-mode {
+  color: white;
+  background-color: black;
+}

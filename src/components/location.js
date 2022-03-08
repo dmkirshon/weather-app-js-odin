@@ -13,13 +13,13 @@ const location = (jsonAPI) => {
     new Date((timeUTC + localTimezone) * 1000).toUTCString().replace("GMT", "");
   const getTimezone = () => localTimezone;
   const getSunriseLocalTime = () =>
-    new Date(
-      (sunriseUTC + timeZoneOffset + localTimezone) * 1000
-    ).toLocaleTimeString();
+    new Date((sunriseUTC + timeZoneOffset + localTimezone) * 1000)
+      .toLocaleTimeString()
+      .slice(0, 5);
   const getSunsetLocalTime = () =>
-    new Date(
-      (sunsetUTC + timeZoneOffset + localTimezone) * 1000
-    ).toLocaleTimeString();
+    new Date((sunsetUTC + timeZoneOffset + localTimezone) * 1000)
+      .toLocaleTimeString()
+      .slice(0, 5);
   // Use new Date(weatherAPIJson.sys.sunset * 1000) to convert from unix time
 
   const isDayTime = () => {

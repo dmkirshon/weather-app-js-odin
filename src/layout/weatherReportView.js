@@ -5,10 +5,10 @@ const weatherReportView = async () => {
 
   const getDayOrNightClass = () => {
     if (currentWeatherReport.getLocationData().isDayTime()) {
-      return ["black", "white"];
+      return "";
     }
 
-    return ["white", "black"];
+    return "night-dark-mode";
   };
 
   const makeLocationView = () => {
@@ -16,6 +16,11 @@ const weatherReportView = async () => {
     const cityDiv = document.createElement("div");
     const timeDiv = document.createElement("div");
     const sunriseSunsetDiv = document.createElement("div");
+
+    locationInfoDiv.classList = "weather-report-location-info";
+    cityDiv.classList = "weather-report-city";
+    timeDiv.classList = "weather-report-time";
+    sunriseSunsetDiv.classList = "weather-report-sunrise-sunset";
 
     const locationData = currentWeatherReport.getLocationData();
     const currentCity = locationData.getCity();
@@ -26,9 +31,9 @@ const weatherReportView = async () => {
 
     cityDiv.textContent = `${currentCity}, ${currentCountry}`;
     timeDiv.textContent = `${currentTime}`;
-    sunriseSunsetDiv.textContent = `Sunrise: ${currentSunrise} Sunset:${currentSunset}`;
+    sunriseSunsetDiv.textContent = `Sunrise: ${currentSunrise}\nSunset: ${currentSunset}`;
 
-    locationInfoDiv.append(cityDiv, timeDiv, sunriseSunsetDiv);
+    locationInfoDiv.append(timeDiv, cityDiv, sunriseSunsetDiv);
 
     return locationInfoDiv;
   };
@@ -39,6 +44,12 @@ const weatherReportView = async () => {
     const weatherIconImage = document.createElement("img");
     const weatherTempsDiv = document.createElement("div");
     const weatherMoreInfoDiv = document.createElement("div");
+
+    weatherInfoDiv.classList = "weather-report-weather-info";
+    weatherDescriptionDiv.classList = "weather-report-weather-description";
+    weatherIconImage.classList = "weather-report-weather-icon";
+    weatherTempsDiv.classList = "weather-report-weather-temps";
+    weatherMoreInfoDiv.classList = "weather-report-more-info";
 
     const weatherData = currentWeatherReport.getWeatherData();
     const weatherDescription = weatherData.getWeatherDescription();
@@ -52,7 +63,7 @@ const weatherReportView = async () => {
     weatherIconImage.src = weatherIcon;
     weatherDescriptionDiv.append(weatherDescription, weatherIconImage);
 
-    weatherTempsDiv.textContent = `${temp}\u2103\n H${tempMin}/L${tempMax}`;
+    weatherTempsDiv.textContent = `${temp}\u2103\n H/L:${tempMax}/${tempMin}`;
     weatherMoreInfoDiv.textContent = `Humidity: ${humidity}% Wind: ${windSpeed}m/s`;
 
     weatherInfoDiv.append(
