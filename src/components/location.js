@@ -1,17 +1,25 @@
 const location = (jsonAPI) => {
   const city = jsonAPI.name;
   const { country } = jsonAPI.sys;
-  const { timezone } = jsonAPI;
+  const localTimezone = jsonAPI.timezone;
   const timeUTC = jsonAPI.dt;
   const sunriseUTC = jsonAPI.sys.sunrise;
   const sunsetUTC = jsonAPI.sys.sunset;
+  const timeZoneOffset = new Date().getTimezoneOffset() * 60;
 
   const getCity = () => city;
   const getCountry = () => country;
-  const getLocalTime = () => new Date((timeUTC + timezone) * 1000);
-  const getTimezone = () => timezone;
-  const getSunriseLocalTime = () => new Date((sunriseUTC + timezone) * 1000);
-  const getSunsetLocalTime = () => sunsetUTC + timezone;
+  const getLocalTime = () =>
+    new Date((timeUTC + localTimezone) * 1000).toUTCString().replace("GMT", "");
+  const getTimezone = () => localTimezone;
+  const getSunriseLocalTime = () =>
+    new Date(
+      (sunriseUTC + timeZoneOffset + localTimezone) * 1000
+    ).toLocaleTimeString();
+  const getSunsetLocalTime = () =>
+    new Date(
+      (sunsetUTC + timeZoneOffset + localTimezone) * 1000
+    ).toLocaleTimeString();
   // Use new Date(weatherAPIJson.sys.sunset * 1000) to convert from unix time
 
   const isDayTime = () => {
