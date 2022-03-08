@@ -3,16 +3,19 @@ import weather from "./weather";
 import weatherAPI from "./weatherAPI";
 
 const weatherReport = async () => {
-  const weatherReportData = await weatherAPI().fetchWeatherData();
-  const locationData = location(weatherReportData);
-  const weatherData = weather(weatherReportData);
+  const weatherReportAPI = weatherAPI();
+  let weatherReportData = await weatherReportAPI.fetchWeatherData();
 
-  const getLocationData = () => locationData;
-  const getWeatherData = () => weatherData;
+  const getLocationData = () => location(weatherReportData);
+  const getWeatherData = () => weather(weatherReportData);
+  const fetchNewReportData = async (newLocation) => {
+    weatherReportData = await weatherReportAPI.fetchWeatherData(newLocation);
+  };
 
   return {
     getLocationData,
     getWeatherData,
+    fetchNewReportData,
   };
 };
 
