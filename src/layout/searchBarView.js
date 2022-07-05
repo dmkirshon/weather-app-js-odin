@@ -12,7 +12,7 @@ const searchBarView = () => {
   const makeSearchBarButton = () => {
     const searchBarButton = document.createElement("button");
 
-    searchBarButton.textContent = "Search";
+    searchBarButton.textContent = "▶️";
     searchBarButton.classList = "search-bar-button";
 
     return searchBarButton;

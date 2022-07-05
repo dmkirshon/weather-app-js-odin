@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import weatherReportView from "../layout/weatherReportView";
 import searchBarView from "../layout/searchBarView";
 
@@ -26,7 +27,12 @@ const displayController = async () => {
     const searchBarInput = searchBar.makeSearchBarInput();
     const searchBarButton = searchBar.makeSearchBarButton();
 
-    // eslint-disable-next-line no-use-before-define
+    searchBarInput.addEventListener("keyup", (event) => {
+      if (event.key === "Enter") {
+        searchForCity();
+      }
+    });
+
     searchBarButton.addEventListener("click", searchForCity);
 
     searchBarDiv.append(searchBarInput, searchBarButton);
