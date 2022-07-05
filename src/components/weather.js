@@ -11,7 +11,7 @@ const weather = (jsonAPI) => {
 
   const getWeatherDescription = () => weatherDescription;
   const getWeatherIcon = (size = 2) =>
-    `http://openweathermap.org/img/wn/${weatherIconValue}@${size}x.png`;
+    `https://openweathermap.org/img/wn/${weatherIconValue}@${size}x.png`;
   const getTempCelsius = () => tempCelsius;
   const getHumidityPercentage = () => percentHumidity;
   const getTempMinCelsius = () => tempMinCelsius;
