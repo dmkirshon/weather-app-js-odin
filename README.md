@@ -2,6 +2,8 @@
 
 ## Summary: This project is a weather app that uses async capabilities to grab data from a weather API.
 
+[Live Demo](https://dmkirshon.github.io/weather-app-js-odin)
+
 ---
 
 ## Skills:
